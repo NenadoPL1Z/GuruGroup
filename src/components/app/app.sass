@@ -1,0 +1,82 @@
+@mixin lastBlock
+    text-align: right
+    font-weight: 500
+    font-size: 14px
+    color: #00A0AB
+    position: relative
+    margin-bottom: 37px
+    cursor: pointer
+    margin-right: 25px
+
+@mixin lastBlockPseudoElem
+    content: ""
+    background-color: #00A0AB
+    width: 2px
+    height: 10px
+    border-radius: 5px
+    position: absolute
+
+body
+    font-family: "Ubuntu", sans-serif
+    color: #2c2c2c
+    font-size: 14px
+
+*, *::after, *::before
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+
+.container
+    width: 100%
+    max-width: 1000px
+    margin: 0 auto
+    padding: 0 15px
+
+.title
+    margin: 25px 0 8px 37px
+    font-weight: 700
+    font-size: 22px
+
+.error
+    text-align: center
+.content
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    &__inner
+        display: flex
+        justify-content: center
+        margin: 0 24px 24px 0
+        &:nth-of-type(4n+4)
+            margin-right: 0px
+
+.spinner
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+
+.more
+    @include lastBlock
+    &::before
+        @include lastBlockPseudoElem
+        right: -20px
+        bottom: 0
+        transform: rotate(45deg)
+    &::after
+        @include lastBlockPseudoElem
+        right: -14px
+        bottom: 0
+        transform: rotate(-45deg)
+
+.min
+    @include lastBlock
+    &::before
+        @include lastBlockPseudoElem
+        right: -20px
+        bottom: 0
+        transform: rotate(-40deg)
+    &::after
+        @include lastBlockPseudoElem
+        right: -14px
+        bottom: 0
+        transform: rotate(40deg)
